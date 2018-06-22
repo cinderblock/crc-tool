@@ -5,6 +5,8 @@ import reactAutoBind from 'react-autobind';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+import StringHexInput from './StringHexInput.jsx';
+
 
 class CRCToolContainer extends React.Component {
   constructor(props) {
@@ -14,7 +16,7 @@ class CRCToolContainer extends React.Component {
   }
   
   render() {
-    return <div>Hello World!</div>;
+    return <StringHexInput></StringHexInput>;
   }
 }
 
