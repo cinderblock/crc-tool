@@ -33,7 +33,7 @@ class StringHexInput extends React.Component {
   }
   
   handleHexChange(event) {
-    var hexStr = event.target.value.replace(/[^0-9a-fA-F]/, '');
+    var hexStr = event.target.value.replace(/[^0-9a-fA-F]/g, '');
     var extraHexChar = hexStr.length % 2 ? hexStr[hexStr.length - 1] : '';
     hexStr = hexStr.substring(0, hexStr.length & ~1);
     var buffer = Buffer.from(hexStr, 'hex');
