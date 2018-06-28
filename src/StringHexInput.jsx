@@ -15,7 +15,7 @@ class StringHexInput extends React.Component {
     this.state = {
       // The main byte buffer we're wrapping around
       buffer: Buffer.from(''),
-      // As a user is inputting bytes in HEX, half of the characters are only half bytes and we need a place to stored that one as we're typing
+      // As a user is inputting bytes in HEX, half of the characters are only half bytes and we need a place to store that one as we're typing
       extraHexChar: '',
       // Location of cursor so that it can be displayed in both views
       cursorLocation: 0,
