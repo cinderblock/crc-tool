@@ -23,7 +23,7 @@ class StringHexInput extends React.Component {
       hoverByte: false,
       // List of "highlighted" bytes in either string or HEX view (user has clicked on them)
       highlightedBytes: [],
-    }
+    };
   }
   
   handleStringChange(event) {
