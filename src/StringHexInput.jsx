@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button } from 'react-bootstrap';
+import * as Bootstrap from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import reactAutoBind from 'react-autobind';
@@ -41,10 +41,33 @@ class StringHexInput extends React.Component {
   }
   
   render() {
-    return <div>
-      Input String: <input style={{fontFamily: 'monospace'}} type="text" value={this.state.buffer.toString()} onChange={this.handleStringChange}></input>
-      Input HEX: <input style={{fontFamily: 'monospace'}} type="text" value={this.state.buffer.toString('hex') + this.state.extraHexChar} onChange={this.handleHexChange}></input>
-    </div>;
+    var hexText = (this.state.buffer.toString('hex') + this.state.extraHexChar).match(/.{1,2}|^$/g).join(' ');
+
+
+    return <Bootstrap.Grid>
+      <Bootstrap.Form horizontal>
+        <Bootstrap.FormGroup controlId="stringInput">
+          <Bootstrap.Row>
+            <Bootstrap.Col md={1}>
+              <Bootstrap.ControlLabel>ASCII</Bootstrap.ControlLabel>
+              </Bootstrap.Col>
+            <Bootstrap.Col md={10}>
+              <Bootstrap.FormControl style={{paddingLeft: '2.2ch', fontFamily: 'monospace', letterSpacing: '1.5ch'}} type="text" value={this.state.buffer.toString()} onChange={this.handleStringChange} placeholder="Ascii string" />
+            </Bootstrap.Col>
+          </Bootstrap.Row>
+        </Bootstrap.FormGroup>
+        <Bootstrap.FormGroup controlId="hexInput">
+          <Bootstrap.Row>
+            <Bootstrap.Col md={1}>
+              <Bootstrap.ControlLabel>HEX</Bootstrap.ControlLabel>
+            </Bootstrap.Col>
+            <Bootstrap.Col md={10}>
+              <Bootstrap.FormControl style={{fontFamily: 'monospace', wordSpacing: '-0.5ch'}} type="text" value={hexText} onChange={this.handleHexChange} className="form-control" placeholder="HEX" />
+            </Bootstrap.Col>
+          </Bootstrap.Row>
+        </Bootstrap.FormGroup>
+      </Bootstrap.Form>
+    </Bootstrap.Grid>;
   }
 }
 
